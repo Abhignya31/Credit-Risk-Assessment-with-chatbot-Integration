@@ -1,0 +1,82 @@
+## Application Workflow
+
+This web application evaluates a loan applicant’s credit risk using machine learning, business rules, explainable AI, and an interactive chatbot.
+
+---
+
+## Inputs
+
+### User Inputs (via Web Interface)
+
+The user provides the following details:
+
+- Age  
+- Monthly Income  
+- Debt Ratio  
+- Revolving Credit Utilization  
+- Number of Open Credit Lines and Loans  
+- Number of Real Estate Loans  
+- Number of Dependents  
+- Payment History (30–59, 60–89, and 90+ days past due)
+
+### Automatically Derived Inputs
+
+The system calculates additional features internally:
+
+- Debt-to-Income Ratio  
+- Age-to-Credit Ratio  
+
+### Optional Inputs
+
+- Identity proof upload  
+- Income proof upload  
+
+---
+
+## Processing Steps
+
+- Validate user input data  
+- Convert inputs into model features  
+- Scale features using a pre-trained scaler  
+- Predict default risk using XGBoost  
+- Adjust risk using business rules  
+- Generate explanations using SHAP  
+- Classify applicant risk level  
+
+---
+
+## Outputs
+
+The application produces the following outputs:
+
+- Base machine learning risk probability  
+- Final adjusted risk score  
+- Risk category (Low Risk / High Risk)  
+- Loan decision (Approved / Rejected)  
+- Feature-based risk explanation  
+
+All outputs are displayed on the Streamlit dashboard.
+
+---
+
+## Virtual Loan Assistant (Chatbot)
+
+The application includes an AI-powered chatbot that:
+
+- Explains loan approval or rejection decisions  
+- Suggests actions to reduce credit risk  
+- Answers what-if questions related to applicant data  
+
+This improves user interaction and understanding of the results.
+
+---
+
+## Data Persistence
+
+The system stores:
+
+- Applicant input information  
+- Uploaded document metadata  
+- Risk scores and final decisions  
+
+This enables tracking, auditing, and review of previous assessments.
